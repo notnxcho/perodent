@@ -81,11 +81,11 @@ const TeethForm = ({state, dispatch} : {state: ChartState, dispatch: React.Dispa
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="text-[14px] text-gray-500 flex">Furcation</div>
-                    <div className="flex rounded bg-gray-100 items-center justify-center w-[18px] h-[18px]"></div>
+                    <div className={`flex rounded items-center justify-center w-[18px] h-[18px] ${state.teeth[state.currentTooth].furcation ? 'bg-sky-600' : 'bg-gray-100'}`}/>
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="text-[14px] text-gray-500 flex">Implant</div>
-                    <div className="flex rounded bg-gray-100 items-center justify-center w-[18px] h-[18px]"></div>
+                    <div className={`flex rounded items-center justify-center w-[18px] h-[18px] ${state.teeth[state.currentTooth].implant ? 'bg-sky-600' : 'bg-gray-100'}`}/>
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="text-[14px] text-gray-500 flex">Bleeding</div>

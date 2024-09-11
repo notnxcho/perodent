@@ -29,6 +29,8 @@ export type Action =
   | { type: 'SET_MOVEMENT'; payload: { tooth: number, value: [number | null] } }
   | { type: 'SET_BLEEDING'; payload: { tooth: number, side: 'buccal' | 'paletal', value: [boolean, boolean, boolean] } }
   | { type: 'SET_PLAQUE'; payload: { tooth: number, side: 'buccal' | 'paletal', value: [boolean, boolean, boolean] } }
+  | { type: 'SET_FURCATION'; payload: { tooth: number } }
+  | { type: 'SET_IMPLANT'; payload: { tooth: number } }
 
 
 export const initialState: ChartState = {
@@ -583,6 +585,32 @@ export const periodontalReducer = (state: ChartState, action: Action): ChartStat
                 ...tooth.plaque,
                 [action.payload.side]: action.payload.value
               }
+            }
+          }
+          return tooth
+        })
+      }
+    case 'SET_FURCATION':
+      return {
+        ...state,
+        teeth: state.teeth.map((tooth) => {
+          if (tooth.id - 1 === action.payload.tooth) {
+            return {
+              ...tooth,
+              furcation: !tooth.furcation
+            }
+          }
+          return tooth
+        })
+      }
+    case 'SET_IMPLANT':
+      return {
+        ...state,
+        teeth: state.teeth.map((tooth) => {
+          if (tooth.id - 1 === action.payload.tooth) {
+            return {
+              ...tooth,
+              implant: !tooth.implant
             }
           }
           return tooth
