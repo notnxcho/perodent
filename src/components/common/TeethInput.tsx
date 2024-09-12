@@ -42,7 +42,7 @@ const TripleInput = (
 
     return (
         <div 
-            className={`flex gap-1 items-center relative cursor-pointer ${fieldName === focusedField && 'outline outline-2 outline-blue-100 outline-offset-2 rounded'}`}
+            className={`flex gap-1 items-center relative cursor-pointer ${fieldName === focusedField && 'outline outline-2 outline-blue-400 outline-offset-2 rounded'}`}
             onClick={() => inputRef.current?.focus()}
         >
             <input 
@@ -97,7 +97,7 @@ const SingleInput = (
     }, [focusedField])
     return (
         <div 
-            className={`flex gap-1 items-center relative cursor-pointer ${focusedField === fieldName && 'outline outline-2 outline-blue-100 outline-offset-2 rounded'}`}
+            className={`flex gap-1 items-center relative cursor-pointer ${focusedField === fieldName && 'outline outline-2 outline-blue-400 outline-offset-2 rounded'}`}
             onClick={() => inputRef.current?.focus()}
         >
             <input 
@@ -151,10 +151,10 @@ const TripleToggle = (
 
 
     return (
-        <div className={`flex gap-0.5 items-center ${focusedField === fieldName && 'outline outline-2 outline-blue-100 outline-offset-2 rounded'}`} ref={ref} onClick={() => setFocusedField(fieldName)}>
-            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[0] ? 'bg-blue-500' : ''}`}/>
-            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[1] ? 'bg-blue-500' : ''}`}/>
-            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[2] ? 'bg-blue-500' : ''}`}/>
+        <div className={`flex gap-0.5 items-center ${focusedField === fieldName && `outline outline-2 ${fieldName === 'bleeding' ? 'outline-red-400' : 'outline-blue-400'} outline-offset-2 rounded`}`} ref={ref} onClick={() => setFocusedField(fieldName)}>
+            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[0] ? fieldName === 'bleeding' ? 'bg-red-500' : 'bg-blue-500' : ''}`}/>
+            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[1] ? fieldName === 'bleeding' ? 'bg-red-500' : 'bg-blue-500' : ''}`}/>
+            <div className={`flex rounded bg-gray-100 items-center justify-center w-4 h-[18px] ${value[2] ? fieldName === 'bleeding' ? 'bg-red-500' : 'bg-blue-500' : ''}`}/>
         </div>
     )
 }
