@@ -14,7 +14,7 @@ const TeethForm = ({state, dispatch} : {state: ChartState, dispatch: React.Dispa
         setFocusedField('gingivalMargin')
     }, [state.currentTooth])
     return (
-        <div className="flex px-4 py-3 rounded-lg border z-10 bg-white shadow-sm">
+        <div className="flex px-4 py-3 rounded-lg border z-10 bg-white -mx-3 shadow-sm">
             <FocusTrap>
                 <div className="flex flex-col gap-3 grow">
                     <div className="flex justify-between items-center mb-1">
