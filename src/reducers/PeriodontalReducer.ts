@@ -579,7 +579,6 @@ export const periodontalReducer = (state: ChartState, action: Action): ChartStat
         ...state,
         teeth: state.teeth.map((tooth) => {
           if (tooth.id - 1 === action.payload.tooth) {
-            console.log('changing plaque on', tooth, 'setting: ', action.payload.side, 'to: ', action.payload.value)
             return {
               ...tooth,
               plaque: {
