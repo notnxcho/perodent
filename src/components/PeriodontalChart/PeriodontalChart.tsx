@@ -6,20 +6,20 @@ import TeethForm from '../TeethForm';
 import Progressbar from './Progressbar';
 import jsPDF from 'jspdf';
 
-const generatePDF = (teeth: Tooth[]) => {
-    const doc = new jsPDF();
-    doc.text('Periodontal Chart', 10, 10);
-    teeth.forEach((tooth, index) => {
-        doc.text(`Tooth ${index + 1}:`, 10, 20 + index * 10);
-        doc.text(`Gingival Margin: ${JSON.stringify(tooth.gingivalMargin)}`, 20, 30 + index * 10);
-        doc.text(`Probing Depth: ${JSON.stringify(tooth.probingDepth)}`, 20, 40 + index * 10);
-        doc.text(`Movement: ${JSON.stringify(tooth.movement)}`, 20, 50 + index * 10);
-        doc.text(`Bleeding: ${JSON.stringify(tooth.bleeding)}`, 20, 60 + index * 10);
-        doc.text(`Plaque: ${JSON.stringify(tooth.plaque)}`, 20, 70 + index * 10);
-    });
-    console.log(doc)
-    doc.save('periodontal_chart.pdf');
-};
+// const generatePDF = (teeth: Tooth[]) => {
+//     const doc = new jsPDF();
+//     doc.text('Periodontal Chart', 10, 10);
+//     teeth.forEach((tooth, index) => {
+//         doc.text(`Tooth ${index + 1}:`, 10, 20 + index * 10);
+//         doc.text(`Gingival Margin: ${JSON.stringify(tooth.gingivalMargin)}`, 20, 30 + index * 10);
+//         doc.text(`Probing Depth: ${JSON.stringify(tooth.probingDepth)}`, 20, 40 + index * 10);
+//         doc.text(`Movement: ${JSON.stringify(tooth.movement)}`, 20, 50 + index * 10);
+//         doc.text(`Bleeding: ${JSON.stringify(tooth.bleeding)}`, 20, 60 + index * 10);
+//         doc.text(`Plaque: ${JSON.stringify(tooth.plaque)}`, 20, 70 + index * 10);
+//     });
+//     console.log(doc)
+//     doc.save('periodontal_chart.pdf');
+// };
 
 const PeriodontalChart: React.FC = () => {
   const [state, dispatch] = useReducer(periodontalReducer, initialState);
